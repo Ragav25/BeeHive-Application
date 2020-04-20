@@ -9,7 +9,10 @@ const TaskList = (props) => {
         <p>
           {item.text}
           <span>
-            <i class="fa fa-trash"></i>
+            <i
+              className="fa fa-trash"
+              onClick={() => props.deleteItem(item.key)}
+            ></i>
           </span>
         </p>
         <hr></hr>

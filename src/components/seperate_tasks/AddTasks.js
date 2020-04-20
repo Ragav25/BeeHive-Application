@@ -15,6 +15,7 @@ class AddingTask extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   handleInput(e) {
@@ -42,6 +43,13 @@ class AddingTask extends React.Component {
     }
   }
 
+  deleteItem(key) {
+    const filteredItems = this.state.items.filter((item) => item.key !== key);
+    this.setState({
+      items: filteredItems,
+    });
+  }
+
   render() {
     return (
       <div className="task-fields">
@@ -56,7 +64,10 @@ class AddingTask extends React.Component {
             <button type="submit">ADD</button>
           </form>
         </header>
-        <TaskList items={this.state.items}></TaskList>
+        <TaskList
+          items={this.state.items}
+          deleteItem={this.deleteItem}
+        ></TaskList>
       </div>
     );
   }
