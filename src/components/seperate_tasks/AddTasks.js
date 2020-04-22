@@ -10,12 +10,16 @@ class AddingTask extends React.Component {
       currentItem: {
         text: "",
         key: "",
+        editOption: false,
       },
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.editItem = this.editItem.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.closeEdit = this.closeEdit.bind(this);
   }
 
   handleInput(e) {
@@ -30,7 +34,7 @@ class AddingTask extends React.Component {
   addItem(e) {
     e.preventDefault();
     const newItem = this.state.currentItem;
-    console.log(newItem);
+
     if (newItem.text !== "") {
       const newItems = [...this.state.items, newItem];
       this.setState({
@@ -50,6 +54,39 @@ class AddingTask extends React.Component {
     });
   }
 
+  editItem = (key) => {
+    const selectedItemIndex = this.state.items.findIndex(
+      (item) => item.key === key
+    );
+    var allItems = this.state.items;
+
+    allItems[selectedItemIndex].editOption = true;
+
+    this.setState({ items: allItems });
+  };
+
+  handleUpdate = (text, key) => {
+    const items = this.state.items;
+    items.map((item) => {
+      if (item.key === key) {
+        item.text = text;
+      }
+    });
+    this.setState({
+      items: items,
+    });
+  };
+
+  closeEdit = (key) => {
+    const closingSelectedItem = this.state.items.findIndex(
+      (item) => item.key === key
+    );
+
+    let allItems = this.state.items;
+    allItems[closingSelectedItem].editOption = false;
+    this.setState({ items: allItems });
+  };
+
   render() {
     return (
       <div className="task-fields">
@@ -64,9 +101,14 @@ class AddingTask extends React.Component {
             <button type="submit">ADD</button>
           </form>
         </header>
+
         <TaskList
           items={this.state.items}
           deleteItem={this.deleteItem}
+          editOption={this.state.items.editOption}
+          editItem={this.editItem}
+          closeEdit={this.closeEdit}
+          handleUpdate={this.handleUpdate}
         ></TaskList>
       </div>
     );

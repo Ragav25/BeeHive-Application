@@ -1,5 +1,5 @@
 #listbody {
-  background-color: #ada3a1;
+  /* background-color: #ada3a1; */
   border-radius: 10px;
   /* margin: 10px; */
   /* padding: 5px; */
@@ -7,22 +7,24 @@
 .task-list {
   color: white;
   margin: 15px 20px;
-  text-align: center;
+  /* text-align: center; */
   font-size: 22px;
   font-weight: bold;
   text-transform: capitalize;
-  padding: 5px;
 }
 
-.task-list hr {
-  color: black;
-  outline: none;
-  border-radius: 20px;
-  font-weight: bolder;
-}
-
-.task-list p {
+.task-list .before-edit {
   position: relative;
+  background-color: teal;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.task-list .during-edit {
+  position: relative;
+  background-color: rgb(36, 128, 0);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .task-list p span {
@@ -32,8 +34,36 @@
 
 .task-list p i {
   cursor: pointer;
+  margin: 10px;
 }
 
-.task-list p i:hover {
+.task-list p #trash:hover {
   color: rgb(160, 20, 20);
+}
+
+.task-list p input {
+  background-color: black;
+  border: 0;
+  color: #ffff;
+  font-size: 20px;
+  text-align: start;
+  width: 80%;
+  padding: 12px 0px;
+}
+
+.task-list p input:focus {
+  outline: none;
+}
+
+#hide-icon {
+  display: none;
+  position: absolute;
+  right: 10px;
+}
+
+#show-icon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  padding-right: 30px;
 }
