@@ -1,5 +1,6 @@
 import React from "react";
 import "./TaskList.css";
+import TextareaAutosize from "react-textarea-autosize";
 
 const TaskList = (props) => {
   const items = props.items;
@@ -8,33 +9,48 @@ const TaskList = (props) => {
     return (
       <>
         <div className="task-list" key={item.key}>
-          <p className={item.editOption ? "during-edit" : "before-edit"}>
-            <textarea
+          <div
+            className="input-area"
+            id={
+              item.editOption ? "during-edit-input-area" : "input-area-buttons"
+            }
+          >
+            <ul className="header-icons">
+              <li>
+                <i class="fa fa-check" id="check"></i>
+              </li>
+              <li id="close-edit-icons">
+                <i
+                  class="fa fa-edit"
+                  onClick={() => props.editItem(item.key)}
+                  id={item.editOption ? "hiding-icon" : "showing-icon"}
+                ></i>
+
+                <i
+                  class="fa fa-window-close-o"
+                  onClick={() => props.closeEdit(item.key)}
+                  id={item.editOption ? "showing-icon" : "hiding-icon"}
+                ></i>
+              </li>
+              <li>
+                <i
+                  className="fa fa-trash"
+                  id="trash"
+                  onClick={() => props.deleteItem(item.key)}
+                ></i>
+              </li>
+            </ul>
+
+            <TextareaAutosize
+              minrows={25}
               type="text"
+              className="textarea-auto"
               id={item.key}
               value={item.text}
               disabled={item.editOption ? "" : "disabled"}
               onChange={(e) => props.handleUpdate(e.target.value, item.key)}
             />
-            <span>
-              <i
-                className="fa fa-pencil-square-o"
-                onClick={() => props.editItem(item.key)}
-                id={item.editOption ? "hide-icon" : "show-icon"}
-              ></i>
-
-              <i
-                className="fa fa-window-close"
-                onClick={() => props.closeEdit(item.key)}
-                id={item.editOption ? "show-icon" : "hide-icon"}
-              ></i>
-              <i
-                className="fa fa-trash"
-                id="trash"
-                onClick={() => props.deleteItem(item.key)}
-              ></i>
-            </span>
-          </p>
+          </div>
         </div>
       </>
     );

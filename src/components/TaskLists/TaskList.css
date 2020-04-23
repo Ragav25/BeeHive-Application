@@ -1,69 +1,76 @@
-#listbody {
-  /* background-color: #ada3a1; */
+/*  */
+
+#input-area-buttons {
+  background-color: #708564;
   border-radius: 10px;
-  /* margin: 10px; */
-  /* padding: 5px; */
+  justify-content: center;
+  margin: 25px 0px;
+  /* overflow: hidden; */
 }
-.task-list {
-  color: white;
-  margin: 15px 20px;
+
+#during-edit-input-area {
+  background-color: #ada3a1;
+  border-radius: 10px;
+  justify-content: center;
+  margin: 25px 0px;
+}
+
+.header-icons {
+  background-color: #fff278c5;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+  margin: auto;
+  border-radius: 10px;
   /* text-align: center; */
-  font-size: 22px;
-  font-weight: bold;
-  text-transform: capitalize;
 }
 
-.task-list .before-edit {
-  position: relative;
-  background-color: teal;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.task-list .during-edit {
-  position: relative;
-  background-color: rgb(36, 128, 0);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.task-list p span {
-  position: absolute;
-  right: 10px;
-}
-
-.task-list p i {
+.header-icons li {
+  text-decoration: none;
+  list-style: none;
+  font-size: 25px;
   cursor: pointer;
-  margin: 10px;
+  color: #708564;
 }
 
-.task-list p #trash:hover {
-  color: rgb(160, 20, 20);
+.header-icons #close-edit-icons {
+  display: flex;
+  padding-left: 10px;
 }
 
-.task-list p input {
-  background-color: black;
-  border: 0;
-  color: #ffff;
-  font-size: 20px;
-  text-align: start;
-  width: 80%;
-  padding: 12px 0px;
-}
-
-.task-list p input:focus {
-  outline: none;
-}
-
-#hide-icon {
-  display: none;
-  position: absolute;
-  right: 10px;
-}
-
-#show-icon {
+.header-icons #showing-icon {
   display: block;
-  position: absolute;
-  right: 10px;
-  padding-right: 30px;
+}
+
+.header-icons #hiding-icon {
+  display: none;
+}
+
+.textarea-auto {
+  background-color: transparent;
+  width: 97%;
+  padding: 20px;
+  resize: none;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+  margin: 0px auto;
+  color: rgb(17, 15, 15);
+}
+
+.textarea-auto:disabled {
+  color: #fff278;
+}
+
+.input-area span {
+  background-color: #fff278;
+  width: 200px;
+  height: 63.5px;
+  text-align: center;
+  align-content: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
