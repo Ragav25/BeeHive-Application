@@ -1,7 +1,6 @@
 import React from "react";
 import "./TaskStyle.css";
 import TaskList from "../TaskLists/TaskList";
-import CreateNewProjects from "../create_projects/CreateNewProjects";
 
 class AddingTask extends React.Component {
   constructor(props) {
@@ -91,7 +90,6 @@ class AddingTask extends React.Component {
   render() {
     return (
       <div className="task-fields">
-        <CreateNewProjects />
         <header>
           <form id="to-do-form" onSubmit={this.addItem}>
             <input

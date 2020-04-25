@@ -1,14 +1,18 @@
 import React from "react";
-import "./App.css";
 // import InitialPage from "./components/Initial";
 import AddingTask from "./components/seperate_tasks/AddTasks";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProjectComponents from "./components/projectcomponents/ProjectComponents";
 
 class App extends React.Component {
   render() {
     return (
-      <>
-        <AddingTask />
-      </>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={ProjectComponents} />
+          <Route path="/project" component={AddingTask} />
+        </Switch>
+      </Router>
     );
   }
 }
