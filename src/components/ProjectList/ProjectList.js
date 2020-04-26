@@ -1,26 +1,52 @@
 import React, { useContext } from "react";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import "./ProjectList.css";
 import { ProjectContext } from "../../context/ProjectContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const ProjectList = () => {
-  const { projects } = useContext(ProjectContext);
+  const { projects, removeProject } = useContext(ProjectContext);
+  const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
+
   return projects.length ? (
-    <div className="project-list">
-      <ul>
-        {projects.map((project) => {
-          return (
-            <li>
-              <div className="project-name">Name: {project.projectName}</div>
-              <div className="project-description">
-                Description: {project.description}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+    <div id="project-list">
+      {projects.map((project) => {
+        return (
+          <Card
+            style={{ background: theme.cardc, color: theme.textc }}
+            key={project.id}
+          >
+            <Card.Body>
+              <Card.Title>{project.projectName}</Card.Title>
+
+              <Card.Text>{project.description}</Card.Text>
+
+              <Button
+                onClick={() => removeProject(project.id)}
+                style={{ background: theme.buttonc, color: theme.textc }}
+              >
+                Delete
+              </Button>
+            </Card.Body>
+          </Card>
+        );
+      })}
     </div>
   ) : (
-    <div className="empty">No Project Created!!</div>
+    <div className="empty">
+      <Card
+        className="text-center"
+        id="empty-card"
+        style={{ background: theme.cardc, color: theme.textc }}
+      >
+        <Card.Header>SORRY!</Card.Header>
+        <Card.Body>
+          <Card.Title>No Project Created </Card.Title>
+        </Card.Body>
+      </Card>
+    </div>
   );
 };
 

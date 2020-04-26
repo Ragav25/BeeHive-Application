@@ -1,3 +1,22 @@
 #project-list {
-  margin: 20px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 450px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+#project-list .card {
+  margin: 10px;
+  width: 25rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.empty {
+  margin: 20px 200px;
+}
+
+#empty-card {
+  height: 200px;
 }

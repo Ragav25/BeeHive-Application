@@ -10,6 +10,7 @@ class ThemeContextProvider extends Component {
       bg: "#FCFCFC",
       textc: "#FCFCFC",
       buttonc: "#F9C124",
+      cardc: "#FEA539",
       switchText: "Dark Mode",
     },
     dark: {
@@ -17,6 +18,7 @@ class ThemeContextProvider extends Component {
       bg: "#433A3A",
       textc: "#F9C124",
       buttonc: "#545454",
+      cardc: "#392F2B",
       switchText: "Light Mode",
     },
   };
