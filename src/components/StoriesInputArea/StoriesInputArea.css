@@ -1,0 +1,13 @@
+#stories-area {
+  text-align: center;
+  margin: 30px auto;
+}
+
+#stories-area h1 {
+  margin: 40px;
+}
+
+#stories-area .form-control {
+  margin: 10px auto;
+  width: 70%;
+}

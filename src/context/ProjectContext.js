@@ -1,15 +1,13 @@
 import React, { useState, createContext, useEffect } from "react";
-import uuid from "uuid/v1";
+import { v4 as uuidv4 } from "uuid";
 
 export const ProjectContext = createContext();
 
 const ProjectContextProvider = (props) => {
-  const [projects, setProjects] = useState([], () => {
+  const [projects, setProjects] = useState(() => {
     const localData = localStorage.getItem("projects");
     return localData ? JSON.parse(localData) : [];
   });
-  // { projectName: "To-Do-Application", description: "doing to do app", id: 1 },
-  // { projectName: "Portfolio", description: "creating portfolio", id: 2 },
 
   useEffect(() => {
     localStorage.setItem("projects", JSON.stringify(projects));
@@ -18,7 +16,7 @@ const ProjectContextProvider = (props) => {
   const addProject = (projectName, description) => {
     setProjects([
       ...projects,
-      { projectName: projectName, description: description, id: Date.now() },
+      { projectName: projectName, description: description, id: uuidv4() },
     ]);
   };
 

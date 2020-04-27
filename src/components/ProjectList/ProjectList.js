@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./ProjectList.css";
+
 import { ProjectContext } from "../../context/ProjectContext";
 import { ThemeContext } from "../../context/ThemeContext";
 
@@ -18,18 +20,27 @@ const ProjectList = () => {
             style={{ background: theme.cardc, color: theme.textc }}
             key={project.id}
           >
-            <Card.Body>
+            <Card.Body key={project.id}>
               <Card.Title>{project.projectName}</Card.Title>
 
               <Card.Text>{project.description}</Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Link to={`/project/${project.id}`}>
+                <Button
+                  style={{ background: theme.buttonc, color: theme.textc }}
+                >
+                  VIEW
+                </Button>
+              </Link>
 
               <Button
                 onClick={() => removeProject(project.id)}
                 style={{ background: theme.buttonc, color: theme.textc }}
               >
-                Delete
+                DELETE
               </Button>
-            </Card.Body>
+            </Card.Footer>
           </Card>
         );
       })}
