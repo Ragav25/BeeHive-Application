@@ -13,8 +13,12 @@ const StoriesContextProvider = (props) => {
     setStories([...stories, { task: task, id: uuidv4() }]);
   };
 
+  const removeStories = (id) => {
+    setStories(stories.filter((task) => task.id !== id));
+  };
+
   return (
-    <StoriesContext.Provider value={{ stories, addStories }}>
+    <StoriesContext.Provider value={{ stories, addStories, removeStories }}>
       {props.children}
     </StoriesContext.Provider>
   );

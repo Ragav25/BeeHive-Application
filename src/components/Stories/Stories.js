@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const ProjectStories = (props) => {
-  const { stories } = useContext(StoriesContext);
+  const { stories, removeStories } = useContext(StoriesContext);
   const [project, setProject] = useState({});
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const ProjectStories = (props) => {
               <Card.Text>{task.task}</Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button>Delete</Button>
+              <Button onClick={() => removeStories(task.id)}>Delete</Button>
             </Card.Footer>
           </Card>
         );
