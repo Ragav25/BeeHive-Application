@@ -9,7 +9,7 @@ const StoriesComponent = ({ match }) => {
   return (
     <>
       <ThemeContextProvider>
-        <StoriesComponentProvider>
+        <StoriesComponentProvider match={match.params}>
           <NavBar />
           <Stories match={match.params} />
         </StoriesComponentProvider>

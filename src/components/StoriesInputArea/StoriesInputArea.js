@@ -6,7 +6,7 @@ import "./StoriesInputArea.css";
 import { StoriesContext } from "../../context/StoriesContext";
 
 const StoriesInputArea = (props) => {
-  const { stories, addStories } = useContext(StoriesContext);
+  const { addStories } = useContext(StoriesContext);
 
   const [task, setTask] = useState();
 

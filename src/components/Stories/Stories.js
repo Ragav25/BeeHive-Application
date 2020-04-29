@@ -17,18 +17,13 @@ const ProjectStories = (props) => {
     const fetchData = await JSON.parse(localStorage.getItem("projects"));
 
     fetchData.map((existingData) => {
-      console.log("id getting ", existingData.id);
       if (props.match.id === existingData.id) {
         setProject(existingData);
       }
       return "null";
     });
 
-    const indexSearch = fetchData.findIndex(
-      (data) => props.match.id === data.id
-    );
-
-    console.log(indexSearch);
+    console.log(props.match);
   };
 
   return (

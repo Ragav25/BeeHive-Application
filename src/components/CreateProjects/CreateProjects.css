@@ -12,7 +12,7 @@
 #project-body form {
   margin: 20px auto;
   width: 50%;
-  /* display: flex; */
+  text-align: center;
 }
 
 #project-body .form-control {
