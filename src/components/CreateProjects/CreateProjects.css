@@ -1,5 +1,7 @@
 #project-body {
-  height: 100vh;
+  min-height: 100vh;
+  max-height: auto;
+  overflow: auto;
 }
 
 #project-heading {

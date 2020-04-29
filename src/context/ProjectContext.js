@@ -22,6 +22,7 @@ const ProjectContextProvider = (props) => {
 
   const removeProject = (id) => {
     setProjects(projects.filter((project) => project.id !== id));
+    localStorage.removeItem(id);
   };
 
   return (

@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const ProjectStories = (props) => {
-  const { stories, removeStories } = useContext(StoriesContext);
+  const { stories, removeStories, findItem } = useContext(StoriesContext);
   const [project, setProject] = useState({});
 
   useEffect(() => {
@@ -22,8 +22,6 @@ const ProjectStories = (props) => {
       }
       return "null";
     });
-
-    console.log(props.match);
   };
 
   return (
@@ -38,6 +36,7 @@ const ProjectStories = (props) => {
             </Card.Body>
             <Card.Footer>
               <Button onClick={() => removeStories(task.id)}>Delete</Button>
+              <Button onClick={() => findItem(task.id)}>EDIT</Button>
             </Card.Footer>
           </Card>
         );

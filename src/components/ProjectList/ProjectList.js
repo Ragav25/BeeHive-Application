@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./ProjectList.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 import { ProjectContext } from "../../context/ProjectContext";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -20,6 +22,9 @@ const ProjectList = () => {
             style={{ background: theme.cardc, color: theme.textc }}
             key={project.id}
           >
+            <Card.Header>
+              <FontAwesomeIcon icon={faPen} id="edit-icon" />
+            </Card.Header>
             <Card.Body key={project.id}>
               <Card.Title>{project.projectName}</Card.Title>
 

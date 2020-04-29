@@ -13,6 +13,16 @@
   font-weight: bold;
 }
 
+#project-list #edit-icon {
+  right: 0px;
+  float: right;
+  cursor: pointer;
+}
+
+#project-list #edit-icon:hover {
+  color: #808000;
+}
+
 #project-list button {
   margin: 0px 20px;
 }

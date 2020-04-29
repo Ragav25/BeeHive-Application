@@ -9,6 +9,8 @@ const StoriesContextProvider = (props) => {
     return storiesData ? JSON.parse(storiesData) : [];
   });
 
+  const [editItem, setEditItem] = useState(null);
+
   useEffect(() => {
     localStorage.setItem(props.match.id, JSON.stringify(stories));
   }, [stories]);
@@ -21,8 +23,33 @@ const StoriesContextProvider = (props) => {
     setStories(stories.filter((task) => task.id !== id));
   };
 
+  const findItem = (id) => {
+    const item = stories.find((story) => story.id === id);
+
+    setEditItem(item);
+  };
+
+  const editTask = (task, id) => {
+    console.log(task, id);
+    const newTask = stories.map((story) =>
+      story.id === id ? { task, id } : story
+    );
+
+    setStories(newTask);
+    setEditItem(null);
+  };
+
   return (
-    <StoriesContext.Provider value={{ stories, addStories, removeStories }}>
+    <StoriesContext.Provider
+      value={{
+        stories,
+        addStories,
+        removeStories,
+        findItem,
+        editItem,
+        editTask,
+      }}
+    >
       {props.children}
     </StoriesContext.Provider>
   );

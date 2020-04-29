@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 //Bootstrap
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,14 +6,26 @@ import "./StoriesInputArea.css";
 import { StoriesContext } from "../../context/StoriesContext";
 
 const StoriesInputArea = (props) => {
-  const { addStories } = useContext(StoriesContext);
+  const { addStories, editItem, editTask } = useContext(StoriesContext);
 
-  const [task, setTask] = useState();
+  const [task, setTask] = useState("");
+
+  useEffect(() => {
+    if (editItem) {
+      setTask(editItem.task);
+    } else {
+      setTask("");
+    }
+  }, [editItem]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addStories(task);
-    setTask("");
+    if (!editItem) {
+      addStories(task);
+      setTask("");
+    } else {
+      editTask(task, editItem.id);
+    }
   };
 
   return (
@@ -32,7 +44,7 @@ const StoriesInputArea = (props) => {
             required
           />
         </Form.Group>
-        <Button type="submit">Submit</Button>
+        <Button type="submit"> {editItem ? "EDIT" : "ADD"}</Button>
       </Form>
     </div>
   );
