@@ -6,7 +6,7 @@ export const ThemeContext = createContext();
 
 class ThemeContextProvider extends Component {
   state = {
-    isLightTheme: true,
+    isLightTheme: false,
     light: {
       navc: "#F9C124",
       bg: "#FCFCFC",
@@ -14,6 +14,7 @@ class ThemeContextProvider extends Component {
       buttonc: "#F9C124",
       cardc: "#FEA539",
       switchIcon: <FontAwesomeIcon icon={faMoon} />,
+      logoFilter: " brightness(0) invert(1)",
     },
     dark: {
       navc: "#545454",
@@ -22,6 +23,7 @@ class ThemeContextProvider extends Component {
       buttonc: "#545454",
       cardc: "#392F2B",
       switchIcon: <FontAwesomeIcon icon={faSun} />,
+      logoFilter: "invert(0.5) sepia(2) saturate(10) hue-rotate(12deg)",
     },
   };
 

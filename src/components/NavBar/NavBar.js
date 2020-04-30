@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import Logo from "./Logo";
 
 import { ThemeContext } from "../../context/ThemeContext";
 
@@ -13,7 +14,7 @@ const NavBar = (props) => {
         <div id="back-button">{props.children}</div>
       </Link>
 
-      <h4 id="logo">BEE HIVE</h4>
+      <Logo id="logo" style={{ filter: theme.logoFilter }} />
     </nav>
   );
 };
