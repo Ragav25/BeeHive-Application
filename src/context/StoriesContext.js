@@ -25,7 +25,6 @@ const StoriesContextProvider = (props) => {
 
   const findItem = (id) => {
     const item = stories.find((story) => story.id === id);
-
     setEditItem(item);
   };
 

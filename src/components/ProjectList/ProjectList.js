@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+// import TextareaAutosize from "react-textarea-autosize";
 import "./ProjectList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +11,7 @@ import { ProjectContext } from "../../context/ProjectContext";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const ProjectList = () => {
-  const { projects, removeProject } = useContext(ProjectContext);
+  const { projects, removeProject, findItem } = useContext(ProjectContext);
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
 
@@ -23,10 +24,25 @@ const ProjectList = () => {
             key={project.id}
           >
             <Card.Header>
-              <FontAwesomeIcon icon={faPen} id="edit-icon" />
+              <FontAwesomeIcon
+                icon={faPen}
+                id="edit-icon"
+                onClick={() => findItem(project.id)}
+              />
             </Card.Header>
+
             <Card.Body key={project.id}>
-              <Card.Title>{project.projectName}</Card.Title>
+              <Card.Title>
+                {/* <TextareaAutosize
+                  minRows={2}
+                  id="textarea-library"
+                  value={project.projectName}
+                  style={{ color: theme.textc }}
+                  disabled=
+                  {isEdit ? "" : "disabled"}
+                /> */}
+                {project.projectName}
+              </Card.Title>
 
               <Card.Text>{project.description}</Card.Text>
             </Card.Body>

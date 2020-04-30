@@ -9,6 +9,9 @@ const ProjectContextProvider = (props) => {
     return localData ? JSON.parse(localData) : [];
   });
 
+  const [editItem, setEditItem] = useState();
+  const [isEdit, setIsEdit] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
@@ -25,8 +28,35 @@ const ProjectContextProvider = (props) => {
     localStorage.removeItem(id);
   };
 
+  const findItem = (id) => {
+    const item = projects.find((project) => project.id === id);
+
+    setEditItem(item);
+    setIsEdit({ edit: true });
+    console.log(editItem);
+  };
+
+  const editProject = (projectName, description, id) => {
+    const items = projects.map((project) =>
+      project.id === id ? { projectName, description, id } : project
+    );
+    console.log(items);
+    setProjects(items);
+    setEditItem();
+  };
+
   return (
-    <ProjectContext.Provider value={{ projects, addProject, removeProject }}>
+    <ProjectContext.Provider
+      value={{
+        projects,
+        addProject,
+        removeProject,
+        findItem,
+        editProject,
+        isEdit,
+        editItem,
+      }}
+    >
       {props.children}
     </ProjectContext.Provider>
   );

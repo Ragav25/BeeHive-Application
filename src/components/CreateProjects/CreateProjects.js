@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 //Bootstrap
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,15 +13,30 @@ const CreateProjects = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
 
-  const { addProject } = useContext(ProjectContext);
+  const { addProject, editProject, editItem } = useContext(ProjectContext);
   const [projectName, setProjectName] = useState();
   const [description, setDescription] = useState();
 
+  useEffect(() => {
+    if (editItem) {
+      setProjectName(editItem.projectName);
+      setDescription(editItem.description);
+      console.log(editItem);
+    } else {
+      setProjectName("");
+      setDescription("");
+    }
+  }, [editItem]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProject(projectName, description);
-    setProjectName("");
-    setDescription("");
+    if (!editItem) {
+      addProject(projectName, description);
+      setProjectName("");
+      setDescription("");
+    } else {
+      editProject(projectName, description, editItem.id);
+    }
   };
 
   return (
@@ -53,7 +68,7 @@ const CreateProjects = () => {
           type="submit"
           style={{ background: theme.buttonc, color: theme.textc }}
         >
-          ADD PROJECT
+          {editItem ? "EDIT PROJECT" : "ADD PROJECT"}
         </Button>
       </Form>
       <ThemeToggle />
