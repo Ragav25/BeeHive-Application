@@ -30,6 +30,11 @@
   text-align: center;
 }
 
+#project-list .card-title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
 #project-list button {
   margin: 0px 20px;
 }

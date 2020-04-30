@@ -1,4 +1,6 @@
 import React, { Component, createContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 export const ThemeContext = createContext();
 
@@ -11,7 +13,7 @@ class ThemeContextProvider extends Component {
       textc: "#FCFCFC",
       buttonc: "#F9C124",
       cardc: "#FEA539",
-      switchText: "Dark Mode",
+      switchIcon: <FontAwesomeIcon icon={faMoon} />,
     },
     dark: {
       navc: "#545454",
@@ -19,7 +21,7 @@ class ThemeContextProvider extends Component {
       textc: "#F9C124",
       buttonc: "#545454",
       cardc: "#392F2B",
-      switchText: "Light Mode",
+      switchIcon: <FontAwesomeIcon icon={faSun} />,
     },
   };
 

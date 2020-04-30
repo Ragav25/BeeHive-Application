@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import "./ThemeToggle.css";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const ThemeToggle = () => {
@@ -14,7 +15,7 @@ const ThemeToggle = () => {
               onClick={toggleTheme}
               style={{ background: theme.buttonc, color: theme.textc }}
             >
-              {theme.switchText}
+              {theme.switchIcon}
             </Button>
           </div>
         );

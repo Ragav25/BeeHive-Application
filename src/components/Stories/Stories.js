@@ -2,10 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Stories.css";
 import StoriesInputArea from "../StoriesInputArea/StoriesInputArea";
 import { StoriesContext } from "../../context/StoriesContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const ProjectStories = (props) => {
+  const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
+
   const { stories, removeStories, findItem } = useContext(StoriesContext);
   const [project, setProject] = useState({});
 
@@ -25,18 +29,33 @@ const ProjectStories = (props) => {
   };
 
   return (
-    <div id="stories-display">
+    <div
+      id="stories-display"
+      style={{ background: theme.bg, color: theme.textc }}
+    >
       <StoriesInputArea name={project.projectName} />
       {stories.map((task) => {
         return (
-          <Card key={task.id}>
-            {/* <Card.Header>Featured</Card.Header> */}
+          <Card
+            key={task.id}
+            style={{ background: theme.cardc, color: theme.textc }}
+          >
             <Card.Body>
               <Card.Text>{task.task}</Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button onClick={() => removeStories(task.id)}>Delete</Button>
-              <Button onClick={() => findItem(task.id)}>EDIT</Button>
+              <Button
+                onClick={() => removeStories(task.id)}
+                style={{ background: theme.buttonc, color: theme.textc }}
+              >
+                Delete
+              </Button>
+              <Button
+                onClick={() => findItem(task.id)}
+                style={{ background: theme.buttonc, color: theme.textc }}
+              >
+                EDIT
+              </Button>
             </Card.Footer>
           </Card>
         );

@@ -43,6 +43,8 @@ const CreateProjects = () => {
     <div id="project-body" style={{ background: theme.bg, color: theme.textc }}>
       <h2 id="project-heading">WELCOME TO BEE HIVE</h2>
 
+      <ThemeToggle id="themetoggle" />
+
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Control
@@ -71,7 +73,6 @@ const CreateProjects = () => {
           {editItem ? "EDIT PROJECT" : "ADD PROJECT"}
         </Button>
       </Form>
-      <ThemeToggle />
       <ProjectList />
     </div>
   );

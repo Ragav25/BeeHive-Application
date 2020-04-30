@@ -1,0 +1,14 @@
+#themetoggle button {
+  width: 50px;
+  transition: width 0.5s;
+}
+
+#themetoggle button:focus {
+  outline: 0;
+  border-style: none;
+  border: none;
+}
+
+#themetoggle button:hover {
+  width: 70px;
+}

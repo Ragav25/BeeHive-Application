@@ -32,17 +32,7 @@ const ProjectList = () => {
             </Card.Header>
 
             <Card.Body key={project.id}>
-              <Card.Title>
-                {/* <TextareaAutosize
-                  minRows={2}
-                  id="textarea-library"
-                  value={project.projectName}
-                  style={{ color: theme.textc }}
-                  disabled=
-                  {isEdit ? "" : "disabled"}
-                /> */}
-                {project.projectName}
-              </Card.Title>
+              <Card.Title>{project.projectName}</Card.Title>
 
               <Card.Text>{project.description}</Card.Text>
             </Card.Body>
