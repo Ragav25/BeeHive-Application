@@ -9,6 +9,32 @@
   text-align: center;
 }
 
+#top-nav #back-button {
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 0px;
+}
+
+#top-nav button {
+  background-color: transparent;
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  width: 50px;
+  color: #292121;
+}
+
+#top-nav button:hover {
+  background-color: #fcfcfc;
+  color: #f9c124;
+}
+
 #logo {
   padding: 25px 0px;
   font-size: 25px;
