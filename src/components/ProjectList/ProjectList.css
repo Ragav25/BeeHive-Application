@@ -1,0 +1,48 @@
+#project-list {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 450px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+#project-list .card {
+  margin: 10px;
+  width: 25rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+#project-list #edit-icon {
+  right: 0px;
+  float: right;
+  cursor: pointer;
+}
+
+#project-list #edit-icon:hover {
+  color: #808000;
+}
+
+#project-list .card-body #textarea-library {
+  background-color: transparent;
+  border: none;
+  resize: none;
+  text-align: center;
+}
+
+#project-list .card-title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#project-list button {
+  margin: 0px 20px;
+}
+
+.empty {
+  margin: 20px 200px;
+}
+
+#empty-card {
+  height: 200px;
+}

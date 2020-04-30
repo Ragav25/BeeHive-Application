@@ -1,0 +1,25 @@
+#stories-display {
+  min-height: 100vh;
+  max-height: auto;
+  overflow: auto;
+}
+
+#stories-display .card {
+  width: 80%;
+  text-align: center;
+  margin-top: 0px;
+  margin: 25px auto;
+}
+
+#stories-display .card-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+#stories-display button {
+  margin: 10px 20px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+}

@@ -1,0 +1,31 @@
+#project-body {
+  min-height: 100vh;
+  max-height: auto;
+  overflow: auto;
+}
+
+#project-heading {
+  text-align: center;
+  margin: 0px 25px;
+  padding: 20px 0px;
+  color: #f9c124;
+}
+
+#project-body form {
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
+}
+
+#project-body .form-control {
+  background-color: #c4c4c4;
+}
+
+#project-body .form-control::placeholder {
+  color: #433a3a;
+}
+
+#project-body button {
+  border: none;
+  font-weight: bold;
+}

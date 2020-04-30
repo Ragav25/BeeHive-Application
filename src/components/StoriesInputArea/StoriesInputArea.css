@@ -1,0 +1,46 @@
+#stories-area {
+  text-align: center;
+  margin: 30px auto;
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+#stories-area h1 {
+  margin: 40px;
+  margin-top: 0px;
+  padding: 20px;
+  font-weight: bold;
+  color: #f9c124;
+}
+
+#stories-area h1 span {
+  font-size: 20px;
+}
+
+#stories-area .form-control {
+  margin: 10px auto;
+  width: 70%;
+  background-color: #c4c4c4;
+  font-weight: bold;
+}
+
+#stories-area .form-control::placeholder {
+  color: #433a3a;
+}
+
+#stories-area .form-label {
+  color: #f9c124;
+}
+
+#stories-body #themetoggle {
+  float: left;
+  margin-left: -20px;
+  margin-top: 20px;
+  width: 20px;
+  position: sticky;
+  top: 0px;
+}
+#stories-body #themetoggle button {
+  outline: none;
+  border: none;
+}

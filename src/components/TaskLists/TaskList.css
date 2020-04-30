@@ -1,0 +1,76 @@
+/*  */
+
+#input-area-buttons {
+  background-color: #708564;
+  border-radius: 10px;
+  justify-content: center;
+  margin: 25px 0px;
+  /* overflow: hidden; */
+}
+
+#during-edit-input-area {
+  background-color: #ada3a1;
+  border-radius: 10px;
+  justify-content: center;
+  margin: 25px 0px;
+}
+
+.header-icons {
+  background-color: #fff278c5;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+  margin: auto;
+  border-radius: 10px;
+  /* text-align: center; */
+}
+
+.header-icons li {
+  text-decoration: none;
+  list-style: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: #708564;
+}
+
+.header-icons #close-edit-icons {
+  display: flex;
+  padding-left: 10px;
+}
+
+.header-icons #showing-icon {
+  display: block;
+}
+
+.header-icons #hiding-icon {
+  display: none;
+}
+
+.textarea-auto {
+  background-color: transparent;
+  width: 97%;
+  padding: 20px;
+  resize: none;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+  margin: 0px auto;
+  color: rgb(17, 15, 15);
+}
+
+.textarea-auto:disabled {
+  color: #fff278;
+}
+
+.input-area span {
+  background-color: #fff278;
+  width: 200px;
+  height: 63.5px;
+  text-align: center;
+  align-content: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
