@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const StoriesContext = createContext();
 
 const StoriesContextProvider = (props) => {
-  const key = props.match.id;
+  const key = props.match.id; // eslint-disable-line no-use-before-define
   const [stories, setStories] = useState(() => {
     const storiesData = localStorage.getItem(key);
     return storiesData ? JSON.parse(storiesData) : [];
