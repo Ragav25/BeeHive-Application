@@ -14,8 +14,8 @@ const ProjectStories = (props) => {
   const [project, setProject] = useState({});
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(); // eslint-disable-line no-use-before-define
+  }, [project]); // eslint-disable-line no-use-before-define
 
   const fetchData = async () => {
     const fetchData = await JSON.parse(localStorage.getItem("projects"));

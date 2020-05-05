@@ -4,16 +4,19 @@ import { v4 as uuidv4 } from "uuid";
 export const StoriesContext = createContext();
 
 const StoriesContextProvider = (props) => {
+  const key = props.match.id;
   const [stories, setStories] = useState(() => {
-    const storiesData = localStorage.getItem(props.match.id);
+    const storiesData = localStorage.getItem(key);
     return storiesData ? JSON.parse(storiesData) : [];
   });
 
   const [editItem, setEditItem] = useState(null);
 
+  useEffect(() => {}, [props]);
+
   useEffect(() => {
-    localStorage.setItem(props.match.id, JSON.stringify(stories));
-  }, [stories]);
+    localStorage.setItem(key, JSON.stringify(stories)); // eslint-disable-line no-use-before-define
+  }, [stories]); // eslint-disable-line no-use-before-define
 
   const addStories = (task) => {
     setStories([...stories, { task: task, id: uuidv4() }]);
