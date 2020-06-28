@@ -25,7 +25,7 @@ const ProjectStories = (props) => {
       return "null";
     });
   };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
