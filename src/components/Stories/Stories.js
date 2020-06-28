@@ -14,10 +14,8 @@ const ProjectStories = (props) => {
   const [project, setProject] = useState({});
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+//     fetchData();
+    const fetchData = async () => {
     const fetchData = await JSON.parse(localStorage.getItem("projects"));
 
     fetchData.map((existingData) => {
@@ -27,6 +25,7 @@ const ProjectStories = (props) => {
       return "null";
     });
   };
+  }, []);
 
   return (
     <div
