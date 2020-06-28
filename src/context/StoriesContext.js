@@ -7,7 +7,7 @@ const StoriesContextProvider = (props) => {
   const [stories, setStories] = useState(() => {
     const storiesData = localStorage.getItem(props.match.id);
     return storiesData ? JSON.parse(storiesData) : [];
-  });
+  }); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [editItem, setEditItem] = useState(null);
 
