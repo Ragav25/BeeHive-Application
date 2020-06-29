@@ -5,6 +5,7 @@ export const StoriesContext = createContext();
 
 const StoriesContextProvider = (props) => {
   const [stories, setStories] = useState(() => {
+    // eslint-disable-next-line
     const storiesData = localStorage.getItem(props.match.id);
     return storiesData ? JSON.parse(storiesData) : [];
   }); // eslint-disable-line react-hooks/exhaustive-deps
@@ -12,7 +13,9 @@ const StoriesContextProvider = (props) => {
   const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
-    localStorage.setItem(props.match.id, JSON.stringify(stories));
+    // eslint-disable-next-line
+    const key = props.match.id;
+    localStorage.setItem(key, JSON.stringify(stories));
   }, [stories]);
 
   const addStories = (task) => {

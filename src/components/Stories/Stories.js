@@ -29,7 +29,6 @@ const ProjectStories = (props) => {
     fetchData();
   }, [project]);
   
-
   return (
     <div
       id="stories-display"
