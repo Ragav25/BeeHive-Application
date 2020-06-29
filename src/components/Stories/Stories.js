@@ -14,18 +14,21 @@ const ProjectStories = (props) => {
   const [project, setProject] = useState({});
 
   useEffect(() => {
-//     fetchData();
+ const key = props.match.id;
     const fetchData = async () => {
-    const fetchData = await JSON.parse(localStorage.getItem("projects"));
+      const fetchData = await JSON.parse(localStorage.getItem("projects"));
 
-    fetchData.map((existingData) => {
-      if (props.match.id === existingData.id) {
-        setProject(existingData);
-      }
-      return "null";
-    });
-  };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+      fetchData.map((existingData) => {
+        if (key === existingData.id) {
+          setProject(existingData);
+        }
+        return "null";
+      });
+    };
+
+    fetchData();
+  }, [project]);
+  
 
   return (
     <div
