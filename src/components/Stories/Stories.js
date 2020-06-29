@@ -14,19 +14,21 @@ const ProjectStories = (props) => {
   const [project, setProject] = useState({});
 
   useEffect(() => {
-    fetchData(); // eslint-disable-line no-use-before-define
-  }, [project]); // eslint-disable-line no-use-before-define
+    // eslint-disable-next-line
+    const key = props.match.id;
+    const fetchData = async () => {
+      const fetchData = await JSON.parse(localStorage.getItem("projects"));
 
-  const fetchData = async () => {
-    const fetchData = await JSON.parse(localStorage.getItem("projects"));
+      fetchData.map((existingData) => {
+        if (key === existingData.id) {
+          setProject(existingData);
+        }
+        return "null";
+      });
+    };
 
-    fetchData.map((existingData) => {
-      if (props.match.id === existingData.id) {
-        setProject(existingData);
-      }
-      return "null";
-    });
-  };
+    fetchData();
+  }, [project]);
 
   return (
     <div
