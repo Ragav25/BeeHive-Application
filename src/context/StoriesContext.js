@@ -8,7 +8,7 @@ const StoriesContextProvider = (props) => {
     // eslint-disable-next-line
     const storiesData = localStorage.getItem(props.match.id);
     return storiesData ? JSON.parse(storiesData) : [];
-  });
+  }); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [editItem, setEditItem] = useState(null);
 

@@ -14,8 +14,7 @@ const ProjectStories = (props) => {
   const [project, setProject] = useState({});
 
   useEffect(() => {
-    // eslint-disable-next-line
-    const key = props.match.id;
+ const key = props.match.id;
     const fetchData = async () => {
       const fetchData = await JSON.parse(localStorage.getItem("projects"));
 
@@ -29,7 +28,7 @@ const ProjectStories = (props) => {
 
     fetchData();
   }, [project]);
-
+  
   return (
     <div
       id="stories-display"
